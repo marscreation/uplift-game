@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="modules/index.js" type="module"></script>
+    <title>Slide and Ladder</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box-dice">
+            <div class="dice" onclick="spin(event)">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+            </div>
+        </div>
+        <div class="board">
+            <table>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="settings">
+            <button class="menu" onclick="menuToggle()"><i class="fa-solid fa-gear"></i></button>
+            <ul data-show="false">
+                <li><button onclick="menuToggle()"><i class="fa-solid fa-xmark"></i></button></li>
+                <li><button onclick="showAlert('user')"><i class="fa-solid fa-user"></i></button></li>
+                <li><button onclick="showAlert('question')"><i class="fa-solid fa-question"></i></button></li>
+                <li><button onclick="showAlert('reset')"><i class="fa-solid fa-rotate"></i></button></li>
+            </ul>
+        </div>
+        <div class="alert reset">
+            <div class="content">
+                <div class="message">
+                    <p>Are you sure you want to reset the game?</p>
+                </div>
+                <div class="btn-group">
+                    <button onclick="reset()">RESET</button>
+                    <button onclick="closeAlert()">CANCEL</button>
+                </div>
+            </div>
+        </div>
+        <div class="alert question">
+            <div class="content">
+                <div class="message">
+                    <p>Reach the end fo the board lauching the dice. When you stop on the ladder you go up, while stop on
+                        slide you go down. Use SPACE to roll the dice.</p>
+                </div>
+                <div class="btn-group">
+                    <button onclick="closeAlert()">CLOSE</button>
+                </div>
+            </div>
+        </div>
+        <div class="alert user">
+            <div class="content">
+                <div class="message">
+                    <p>Player name</p>
+                    <input type="text" maxlength="20" id="player-name" autocomplete="off">
+                </div>
+                <div class="btn-group">
+                    <button onclick="changeName('update')">UPDATE</button>
+                    <button onclick="closeAlert()">CLOSE</button>
+                </div>
+            </div>
+        </div>
+        <div class="alert congrats">
+            <div class="win">
+                <div>
+                    <p><span id="player">Player 1</span><br>wins!</p>
+                    <button onclick="closeWinAlert()">RESET</button>
+                </div>
+            </div>
+        </div>
+        <audio class="bgsound"></audio>
+        <div class="alert startUser ">
+            <div class="content">
+                <div class="message">
+                    <p>Player name</p>
+                    <input type="text" maxlength="20" id="new-player-name" autocomplete="off">
+                </div>
+                <div class="btn-group">
+                    <button onclick="changeName('new')">PLAY</button>
+                </div>
+            </div>
+        </div>
+        <div class="alert gameRules">
+            <div class="content">
+                <div class="message">
+                    <p>Reach the end fo the board lauching the dice. When you stop on the ladder you go up, while stop on
+                        slide you go down. Use SPACE to roll the dice.</p>
+                </div>
+                <div class="btn-group">
+                    <button onclick="updatePlayer()">CONTINUE</button>
+                </div>
+            </div>
+        </div>
+        <div class="landingPage show">
+            <div class="content">
+                <div>
+                    <p>Slides and Ladder</p>
+                    <div class="btn-group">
+                        <button onclick="playGame()">PLAY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+
+.chip {
+    top: -0.5em;
+    z-index: 5;
+    width: 2.4rem;
+    height: 4rem;
+    position: absolute;
+    background-color: red;
+    transform: translate(calc(0.4em + (4em * 0)), calc(0.6em + (4em * 9)));
+    transition: transform 1s linear;
+}
+
+.chip::after {
+    content: attr(data-player);
+    position: absolute;
+    white-space: nowrap;
+    background-color: #17203d;
+    color: white;
+    transform: translateX(-50%);
+    top: -1em;
+    left: 50%;
+    font-size: 110%;
+    padding: 1px 7px;
+    border-radius: 10px;
+    z-index: 3;
+}
+
+.chip.slow {
+    transition-duration: 3s;
+}
+
+.chip.stand {
+    background: url(../images/character/stand.png) no-repeat;
+    background-size: 15em;
+    animation: stand 0.7s steps(5) infinite;
+}
+
+@keyframes stand {
+    from {
+        background-position: 4px;
+    }
+    to {
+        background-position: -198px;
+    }
+}
+.chip.walk {
+    background: url(../images/character/walk.png) no-repeat;
+    background-size: 15em;
+    animation: walk 0.7s steps(5) infinite;
+}
+
+@keyframes walk {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -194px;
+    }
+}
+
+.chip.stand.flip {
+    width: 38px;
+    background: url(../images/character/stand-flip.png) no-repeat;
+    background-size: 15em;
+    animation: stand-flip 0.7s steps(5) infinite;
+}
+
+@keyframes stand-flip {
+    from {
+        background-position: -2px;
+    }
+    to {
+        background-position: -202px;
+    }
+}
+
+.chip.walk.flip {
+    width: 38px;
+    background: url(../images/character/walk-flip.png) no-repeat;
+    background-size: 15em;
+    animation: walk-flip 0.7s steps(5) infinite;
+}
+
+@keyframes walk-flip {
+    from {
+        background-position: -2px;
+    }
+    to {
+        background-position: -202px;
+    }
+}
